@@ -32,6 +32,9 @@ Please treat these tasks as production-grade software (Unit tests, etc.)
 A fully dockerized environment is provided with all the batteries
 `$ docker-compose up`
 
+## Service's actuator API
+`$ curl http://localhost:8080/api/meta/`
+
 ## Kafka
 ### Control center
 http://localhost:9021/ 
