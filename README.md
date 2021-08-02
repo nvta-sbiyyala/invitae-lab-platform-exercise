@@ -28,10 +28,11 @@ Tasks:
 1. REST API to create a variant: Create an endpoint that enables creation of a variant. The variant is saved in the 
    service's persistence store - a postgres database. For this you'll need to support integration with a `pg` database - 
    what choices would you make for the database connectivity (JDBC, JPA etc.)? why? what does the `relation` schema of the
-   `Variant Table` look like? (eg: `id` data type) would you want to use any db migration tooling (`flyway`, `liquidbase` etc.)? 
+   `Variant Table` look like? What would the "type" of the primary key (Variant `id`)? Also store a Variant creation `timestamp`. 
+   Please use `flyway` for managing db migrations 
    
 2. Broadcast a `VariantEvent` to a `kafka` topic after a `Variant record` is saved, for interested downstream consumers. 
-   The event shape has an "emit" `timestamp` and `variant ID` fields in addition to the attributes of a `Variant`. 
+   For this contrived example, the event shape consists of all `Variant` attributes from the DB table. 
    What library support would you choose for spring integration with `Kafka` (`spring-cloud-stream`, `spring-kafka`etc.)? why? 
    what is your strategy to broadcast events? what are some considerations? what serialization format would you choose - 
    plaintext (eg: `json` etc.) vs binary (eg: `protobuf`, `avro`, `thrift` etc.)? 
