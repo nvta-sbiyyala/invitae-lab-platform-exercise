@@ -21,8 +21,8 @@ A `json` representation of a sample variant:
 ```
 
 ## Tech stack
-This project is bootstrapped using the `Spring-Boot` and `Kotlin` stack. Please attempt to incorporate language/framework 
-idioms and best practices. 
+This project is bootstrapped using the `Spring-Boot` and `Java` stack. Please attempt to incorporate language/framework 
+idioms and best practices.
 
 Tasks:
 1. REST API to create a variant: Create an endpoint that enables creation of a variant. The variant is saved in the 
@@ -37,7 +37,13 @@ Tasks:
    what is your strategy to broadcast events? what are some considerations? what serialization format would you choose - 
    plaintext (eg: `json` etc.) vs binary (eg: `protobuf`, `avro`, `thrift` etc.)? 
 
-Please treat these tasks as production-grade software (Unit tests, etc.)    
+Please treat these tasks as production-grade software (Unit tests, etc.)   
+
+### Building the project 
+The project using `gradle`, with the `kotlin` DSL (https://docs.gradle.org/current/userguide/kotlin_dsl.html)
+```shell
+$ ./gradlew clean build
+```
 
 ## Docker environment 
 A fully dockerized environment is provided with all the batteries
