@@ -21,3 +21,21 @@ management:
       path-mapping:
         info: /build
         health: /ready
+
+spring:
+  jackson:
+    serialization:
+      indent_output: true
+      write_dates_as_timestamps: false
+      write_durations_as_timestamps: false
+  datasource:
+    url: &dbURL jdbc:postgresql://localhost:5432/exercise
+    driver-class-name: org.postgresql.Driver
+    username: &dbUser postgres
+    password: &dbPassword postgres
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQL12Dialect
+    hibernate:
+      ddl-auto: update
