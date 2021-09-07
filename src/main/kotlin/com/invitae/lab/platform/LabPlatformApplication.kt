@@ -6,7 +6,7 @@ import org.springframework.boot.runApplication
 import org.springframework.context.annotation.ComponentScan
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories
 
-@SpringBootApplication(scanBasePackages = arrayOf("domain", "repository", "service", "controller"))
+@SpringBootApplication
 @ComponentScan(basePackages = arrayOf("com.invitae.lab.platform"))
 @EnableJpaRepositories(basePackages = arrayOf("com.invitae.lab.platform.repository"))
 @EntityScan(value = arrayOf("com.invitae.lab.platform.domain"))

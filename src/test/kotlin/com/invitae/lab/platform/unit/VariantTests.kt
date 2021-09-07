@@ -6,6 +6,7 @@ import org.assertj.core.api.Assertions.*
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
+import java.util.UUID
 
 @ExtendWith(MockKExtension::class)
 class VariantTests {
@@ -18,6 +19,7 @@ class VariantTests {
     @DisplayName("createVariant")
     @Test
     internal fun `successfully create Variant`() {
+        assertThat(variantPGAM4.id).isInstanceOf(UUID::class.java)
         assertThat(variantPGAM4.gene).isEqualTo("PGAM4")
     }
 }
