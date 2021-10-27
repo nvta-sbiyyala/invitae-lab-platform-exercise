@@ -1,16 +1,6 @@
 version: "3.5"
 
 services:
-  lab-platform-exercise:
-    build:
-      context: .
-    container_name: lab-platform-exercise
-    ports:
-      - "8080:8080"
-    depends_on:
-      - postgres
-      - kafka
-
   postgres:
     image: postgres:12.4
     container_name: postgres
