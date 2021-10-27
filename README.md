@@ -1,17 +1,20 @@
 # invitae-lab-platform-exercise - Variant Service
+
 A `Variant` is broadly defined as an alteration in a DNA nucleotide sequence. The `Variant Service` is intended to serve
 as the source repository for billions of variants across the globe.
 
 Some of a `Variant`'s attributes include:
-```shell
+
+```
 - Gene	
 - Nucleotide Change	
 - Protein Change	
 - Last Evaluated
-
 ```
+
 A `json` representation of a sample variant:
-```shell
+
+```json
 {
   "gene": "PGAM4",
   "nucleotideChange": "NG_013224.2:g.(?_4960)_(103567_105489)dup,NC_000023.11:g.(?_77910656)_(78009263_78011185)dup",
@@ -20,32 +23,42 @@ A `json` representation of a sample variant:
 }
 ```
 
-## Tech stack
-This project is bootstrapped using the `Spring-Boot` and `Kotlin` stack. Please attempt to incorporate language/framework 
-idioms and best practices. 
+## Tech Stack
+
+This project is bootstrapped using the `Spring-Boot` and `Kotlin` stack. Please attempt to incorporate
+language/framework idioms and best practices.
 
 Tasks:
-1. REST API to create a variant: Create an endpoint that enables creation of a variant. The variant is saved in the 
-   service's persistence store - a postgres database. For this you'll need to support integration with a `pg` database - 
-   what choices would you make for the database connectivity (JDBC, JPA etc.)? why? what does the `relation` schema of the
-   `Variant Table` look like? What would the "type" of the primary key (Variant `id`)? Also store a Variant creation `timestamp`. 
-   Please use `flyway` for managing db migrations 
-   
-2. Broadcast a `VariantEvent` to a `kafka` topic after a `Variant record` is saved, for interested downstream consumers. 
-   For this contrived example, the event shape consists of all `Variant` attributes from the DB table. 
-   What library support would you choose for spring integration with `Kafka` (`spring-cloud-stream`, `spring-kafka`etc.)? why? 
-   what is your strategy to broadcast events? what are some considerations? what serialization format would you choose - 
-   plaintext (eg: `json` etc.) vs binary (eg: `protobuf`, `avro`, `thrift` etc.)? 
 
-Please treat these tasks as production-grade software (Unit tests, etc.)    
+1. Build a REST endpoint that enables creation of a variant. The variant is saved in the service's persistence store - a
+   Postgres database. What choices would you make for the database connectivity (JDBC, JPA, etc.)? Why? What does the
+   schema of the `Variant` table look like? What would be the "type" of the primary key (Variant `id`)? Also store a
+   Variant creation `timestamp`. Please use `flyway` for managing db migrations.
 
-## Docker environment 
-A fully dockerized environment is provided with all the batteries
-`$ docker-compose up`
+2. Broadcast a `VariantEvent` to a `Kafka` topic after a `Variant` record is saved, for interested downstream consumers.
+   For this contrived example, the event shape consists of all `Variant` attributes from the DB table. What library
+   would you choose for the integration with `Kafka` (`spring-cloud-stream`, `spring-kafka`, etc.)? Why? What is your
+   strategy for broadcasting events? What are some considerations? What serialization format would you choose -
+   plaintext (`json`, etc.) vs binary (`protobuf`, `avro`, `thrift`, etc.)?
 
-## Service's actuator API
-`$ curl http://localhost:8080/api/meta/`
+Please treat these tasks as production-grade software (unit tests, etc.).
 
-## Kafka
-### Control center
-http://localhost:9021/ 
+## Docker Environment
+
+A fully dockerized environment is provided with all the batteries:
+
+```shell
+docker-compose up -d
+```
+
+**Note:** For faster development cycles, consider running the `lab-platform-exercise` locally instead of in docker:
+
+```shell
+docker-compose -f docker-compose-without-app.yml up -d 
+./gradlew bootRun
+```
+
+## Kafka UI
+
+The Kafka UI can be accessed at http://localhost:3030/. Of particular interest will be the Topics UI, which lists the
+topics and the messages on each. It can be accessed at http://localhost:3030/kafka-topics-ui/#/.
