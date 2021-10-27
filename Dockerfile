@@ -1,11 +1,9 @@
-FROM openjdk:11-jre-slim as builder
-
 # Build project with gradle
-WORKDIR /workspace
+FROM openjdk:11-jre-slim as builder
 COPY . .
 RUN ./gradlew build
 
-# Store build result as jar file
+# Copy the jar into a new image
 FROM openjdk:11-jre-slim
-
+COPY --from=builder /workspace/build/libs/lab-platform-exercise.jar ./exercise.jar
 CMD ["java","-jar","/exercise.jar"]

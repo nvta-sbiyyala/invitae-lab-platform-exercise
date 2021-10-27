@@ -46,8 +46,19 @@ Please treat these tasks as production-grade software (unit tests, etc.).
 ## Docker Environment
 
 A fully dockerized environment is provided with all the batteries:
-`$ docker-compose up`
 
-## Kafka Control Center
+```shell
+docker-compose up -d
+```
 
-http://localhost:9021/ 
+**Note:** For faster development cycles, consider running the `lab-platform-exercise` locally instead of in docker:
+
+```shell
+docker-compose -f docker-compose-without-app.yml up -d 
+./gradlew bootRun
+```
+
+## Kafka UI
+
+The Kafka UI can be accessed at http://localhost:3030/. Of particular interest will be the Topics UI, which lists the
+topics and the messages on each. It can be accessed at http://localhost:3030/kafka-topics-ui/#/.
