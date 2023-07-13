@@ -48,15 +48,26 @@ Please treat these tasks as production-grade software (unit tests, etc.).
 A fully dockerized environment is provided with all the batteries:
 
 ```shell
-docker-compose up -d
+$ docker-compose up -d
 ```
 
-**Note:** For faster development cycles, consider running the `lab-platform-exercise` locally instead of in docker:
+### Rancher Desktop
+Download [Rancher Desktop](https://rancherdesktop.io/) and follow their [installation instructions](https://docs.rancherdesktop.io/tutorials/working-with-images/)
 
 ```shell
-docker-compose -f docker-compose-without-app.yml up -d 
-./gradlew bootRun
+$ nerdctl compose up -d
 ```
+
+### For faster development cycles, consider running the `lab-platform-exercise` locally instead of in docker
+
+```shell
+$ docker-compose -f docker-compose-without-app.yml up -d 
+```
+(or)
+```shell
+$ nerdctl compose -f docker-compose-without-app.yml up -d
+```
+`$ ./gradlew bootRun`
 
 ## Kafka UI
 
