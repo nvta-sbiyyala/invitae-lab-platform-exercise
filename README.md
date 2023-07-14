@@ -31,9 +31,9 @@ language/framework idioms and best practices.
 Tasks:
 
 1. Build a REST endpoint that enables creation of a variant. The variant is saved in the service's persistence store - a
-   Postgres database. What choices would you make for the database connectivity (JDBC, JPA, etc.)? Why? What does the
+   Postgres database. What choices would you make for the database connectivity (`JDBC`, `JPA`, etc.)? Why? What does the
    schema of the `Variant` table look like? What would be the "type" of the primary key (Variant `id`)? Also store a
-   Variant creation `timestamp`. Please use `flyway` for managing db migrations.
+   Variant creation `timestamp`. How would you manage db migrations (`flyway`, `Liquidbase`, etc.)? Why? 
 
 2. Broadcast a `VariantEvent` to a `Kafka` topic after a `Variant` record is saved, for interested downstream consumers.
    For this contrived example, the event shape consists of all `Variant` attributes from the DB table. What library
