@@ -43,16 +43,12 @@ Tasks:
 
 Please treat these tasks as production-grade software (unit tests, etc.).
 
+## Prerequisites
+This application requires Git and [Rancher Desktop](https://docs.rancherdesktop.io/getting-started/installation/) to be locally installed.
+
 ## Docker Environment
 
 A fully dockerized environment is provided with all the batteries:
-
-```shell
-$ docker-compose up -d
-```
-
-### Rancher Desktop
-Download [Rancher Desktop](https://rancherdesktop.io/) and follow their [installation instructions](https://docs.rancherdesktop.io/tutorials/working-with-images/)
 
 ```shell
 $ nerdctl compose up -d
@@ -60,10 +56,6 @@ $ nerdctl compose up -d
 
 ### For faster development cycles, consider running the `lab-platform-exercise` locally instead of in docker
 
-```shell
-$ docker-compose -f docker-compose-without-app.yml up -d 
-```
-(or)
 ```shell
 $ nerdctl compose -f docker-compose-without-app.yml up -d
 ```
